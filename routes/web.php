@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 
 // ----eventos-----
-Route::get('/', [EventsController::class, 'index']);
-Route::get('/events/criar', [EventsController::class, 'create']);
+Route::get('/', [EventsController::class, 'index']);//mostrar os registros
+Route::get('/events/criar', [EventsController::class, 'create']);//formulario de criacao
+Route::get('/events/{id}', [EventsController::class, 'show']);//mostrar dados especificos
+Route::post('/events', [EventsController::class, 'store']); //envia dados no banco
 // ------endEventos-----
 
 // ----contatos-----
@@ -27,10 +29,3 @@ Route::get('/contactos', [ContatoController::class,'index']);
 // ----endContatos-----
 
 
-// ----produtos-----
-Route::get('/produtos', [ProdutoController::class,'index']);
-
-Route::get('/produtos/{id}', function ($id = null) {
-    return view('produtos',['id'=>$id]);
-});
-// ----endProdutos-----
