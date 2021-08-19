@@ -8,8 +8,16 @@ use App\Models\Event;
 class EventsController extends Controller
 {
     public function index(){
-       $events=Event::all();
-        return view('welcome',['events'=>$events]);
+        $search = request('search');
+        if($search){
+            $events = Event::where([
+                ['title', 'like', '%'.$search.'%']
+            ])->get();
+        }else{
+            $events=Event::all();
+        }
+
+        return view('welcome',['events'=>$events, 'search'=>$search]);
 
 
     }
@@ -24,6 +32,8 @@ return view('events.create');
         $event->city= $request->city;
         $event->description= $request->description;
         $event->private= $request->private;
+        $event->items= $request->items;
+        $event->date= $request->date;
 
         //image upload
 
@@ -38,8 +48,7 @@ return view('events.create');
           $event->image = $imageName;
         }
 
-
-        $event->save();
+       $event->save();
         return redirect('/')->with('msg','evento criado com sucesso');
 
     }

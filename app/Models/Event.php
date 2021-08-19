@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    public function eventos(){
-      
-    }
+    protected $casts =['items'=>'array'];
+    protected $date =['date'];
 }

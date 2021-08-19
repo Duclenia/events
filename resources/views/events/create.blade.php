@@ -16,6 +16,10 @@
             <input type="text" class="form-control" id="title" name="title" placeholder="Nome do evento">
         </div>
         <div class="form-group">
+            <label for="date">Data:</label>
+            <input type="date" class="form-control" id="date" name="date">
+        </div>
+        <div class="form-group">
             <label for="title">Cidade</label>
             <input type="text" class="form-control" id="city" name="city" placeholder="Nome da cidade">
         </div>
@@ -29,6 +33,21 @@
         <div class="form-group">
             <label for="title">Descricão:</label>
             <textarea class="form-control" id="description" name="description" placeholder="O que é?"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="title">Add itens de infraestrutura:</label>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" value="Cadeira">Cadeiras
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" value="Pauco">Pauco
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" value="Agua">Agua
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="items[]" value="Brindes">Brindes
+            </div>
         </div>
         <button class="btn btn-primary">Criar</button>
 

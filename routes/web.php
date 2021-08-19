@@ -29,3 +29,7 @@ Route::get('/contactos', [ContatoController::class,'index']);
 // ----endContatos-----
 
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
