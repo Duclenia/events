@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 // ----eventos-----
 Route::get('/', [EventsController::class, 'index']);//mostrar os registros
-Route::get('/events/criar', [EventsController::class, 'create']);//formulario de criacao
+Route::get('/events/criar', [EventsController::class, 'create'])->middleware('auth');//formulario de criacao
 Route::get('/events/{id}', [EventsController::class, 'show']);//mostrar dados especificos
 Route::post('/events', [EventsController::class, 'store']); //envia dados no banco
 // ------endEventos-----

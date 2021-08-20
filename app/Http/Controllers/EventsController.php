@@ -48,6 +48,9 @@ return view('events.create');
           $event->image = $imageName;
         }
 
+        $user = auth()->user();
+        $event->user_id = $user->id;
+
        $event->save();
         return redirect('/')->with('msg','evento criado com sucesso');
 
